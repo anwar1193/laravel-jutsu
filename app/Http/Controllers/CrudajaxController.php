@@ -8,8 +8,9 @@ use App\Models\Product;
 class CrudajaxController extends Controller
 {
     public function index(){
+        $this->authorize('admin'); // validasi gate (hanya admin yang bisa akses)
         $products = Product::orderBy('id', 'ASC')->get();
-        return view('crudAjax/index', [
+        return view('crudAjax.index', [
             'title' => 'Laravel Jutsu | CRUD AJAX',
             'products' => $products
         ]);
@@ -17,6 +18,7 @@ class CrudajaxController extends Controller
 
     public function addProduct(Request $request)
     {
+        $this->authorize('admin'); // validasi gate (hanya admin yang bisa akses)
         $product = new Product();
         $product->product_code = $request->productCode;
         $product->product_name = $request->productName;
@@ -28,12 +30,14 @@ class CrudajaxController extends Controller
     }
 
     public function getProductById($id){
+        $this->authorize('admin'); // validasi gate (hanya admin yang bisa akses)
         $product = Product::find($id);
         return response()->json($product);
     }
 
     public function updateProduct(Request $request)
     {
+        $this->authorize('admin'); // validasi gate (hanya admin yang bisa akses)
         $product = Product::find($request->id);
         $product->product_code = $request->productCode;
         $product->product_name = $request->productName;
@@ -45,6 +49,7 @@ class CrudajaxController extends Controller
     }
 
     public function deleteProduct($id){
+        $this->authorize('admin'); // validasi gate (hanya admin yang bisa akses)
         $product = Product::find($id);
         $product->delete();
         return response()->json(['success' => 'Record has been deleted']);

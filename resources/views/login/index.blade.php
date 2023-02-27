@@ -47,7 +47,7 @@
 
     <p class="login-box-msg">Sign in to start your session</p>
 
-    <form action="/login" method="post">
+    <form action="/login_proses" method="post">
       @csrf
 
       <div class="form-group @error('username') has-error @enderror">

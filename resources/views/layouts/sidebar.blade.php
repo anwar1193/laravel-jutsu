@@ -29,6 +29,7 @@
 
         <li class="{{ Request::is('dashboard') ? 'active' : '' }}"><a href="/dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
 
+        @can('admin') {{-- validasi gate (hanya admin yang bisa akses) --}}
         <li class="treeview {{ Request::is('rest_client1*') ? 'active' : '' }}">
           <a href="#">
             <i class="fa fa-chain"></i>
@@ -41,6 +42,7 @@
             <li class="{{ Request::is('rest_client1*') ? 'active' : '' }}"><a href="/rest_client1"><i class="fa fa-circle-o"></i> RestClient1</a></li>
           </ul>
         </li>
+        @endcan
 
         <li class="treeview {{ Request::is('dynamic_select*') || Request::is('yajra_data_table*') ? 'active' : '' }}">
           <a href="#">
@@ -55,11 +57,10 @@
             <li class="{{ Request::is('yajra_data_table*') ? 'active' : '' }}"><a href="/yajra_data_table"><i class="fa fa-circle-o"></i> Yajra DataTables</a></li>
             <li class="{{ Request::is('dynamic_select*') ? 'active' : '' }}"><a href="/dynamic_select"><i class="fa fa-circle-o"></i> Dynamic Select</a></li>
           </ul>
-
-
         </li>
 
-        <li class="treeview {{ Request::is('crud_ajax*') ? 'active' : '' }}">
+        @can('admin') {{-- validasi gate (hanya admin yang bisa akses) --}}
+        <li class="treeview {{ Request::is('crud_ajax*') || Request::is('crud_standar*') || Request::is('crud_upload*') || Request::is('crud_sweetalert*') || Request::is('crud_multiple*') ? 'active' : '' }}">
           <a href="#">
             <i class="fa fa-edit"></i>
             <span>CRUD</span>
@@ -68,9 +69,14 @@
             </span>
           </a>
           <ul class="treeview-menu">
+            <li class="{{ Request::is('crud_standar*') ? 'active' : '' }}"><a href="/crud_standar"><i class="fa fa-circle-o"></i> CRUD Standar</a></li>
             <li class="{{ Request::is('crud_ajax*') ? 'active' : '' }}"><a href="/crud_ajax"><i class="fa fa-circle-o"></i> CRUD AJAX</a></li>
+            <li class="{{ Request::is('crud_upload*') ? 'active' : '' }}"><a href="/crud_upload"><i class="fa fa-circle-o"></i> CRUD UPLOAD</a></li>
+            <li class="{{ Request::is('crud_sweetalert*') ? 'active' : '' }}"><a href="/crud_sweetalert"><i class="fa fa-circle-o"></i> CRUD SWEET ALERT</a></li>
+            <li class="{{ Request::is('crud_multiple*') ? 'active' : '' }}"><a href="/crud_multiple"><i class="fa fa-circle-o"></i> CRUD MULTIPLE</a></li>
           </ul>
         </li>
+        @endcan
     
         {{-- <li class="header">LABELS</li>
         <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li> --}}

@@ -10,6 +10,8 @@ class RestClient1Controller extends Controller
 
     public function index()
     {
+        $this->authorize('admin'); // validasi gate (hanya admin yang bisa akses)
+
         $response = Http::get('https://anwar-news.000webhostapp.com/api/mahasiswa');
         // return $response->json();
 
@@ -27,6 +29,8 @@ class RestClient1Controller extends Controller
 
     public function create()
     {
+        $this->authorize('admin'); // validasi gate (hanya admin yang bisa akses)
+
         return view('restclient1.create', [
             'title' => 'Add Data To Rest 1'
         ]);
@@ -35,6 +39,8 @@ class RestClient1Controller extends Controller
 
     public function store(Request $request)
     {
+        $this->authorize('admin'); // validasi gate (hanya admin yang bisa akses)
+
         $data = $request->validate([
             'username' => 'required|min:3',
             'address' => 'required|min:3'
@@ -59,6 +65,8 @@ class RestClient1Controller extends Controller
 
     public function edit($id)
     {
+        $this->authorize('admin'); // validasi gate (hanya admin yang bisa akses)
+
         $response = Http::get('https://anwar-news.000webhostapp.com/api/mahasiswa/show/'.$id);
         json_decode($response, true);
 
@@ -73,6 +81,8 @@ class RestClient1Controller extends Controller
 
     public function update(Request $request, $id)
     {
+        $this->authorize('admin'); // validasi gate (hanya admin yang bisa akses)
+
         $validasi = $request->validate([
             'username' => 'required',
             'address' => 'required'
@@ -92,6 +102,8 @@ class RestClient1Controller extends Controller
 
     public function destroy($id)
     {
+        $this->authorize('admin'); // validasi gate (hanya admin yang bisa akses)
+        
         $response = Http::get('https://anwar-news.000webhostapp.com/api/mahasiswa/destroy/'.$id);
         return redirect('/rest_client1')->with('success', 'Data Berhasil Dihapus !');
     }

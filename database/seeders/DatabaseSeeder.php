@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Product;
 use App\Models\Province;
 use App\Models\City;
+use App\Models\Employee;
 
 class DatabaseSeeder extends Seeder
 {
@@ -24,7 +25,24 @@ class DatabaseSeeder extends Seeder
             'name' => 'Munawar Ahmad',
             'username' => 'anwar11',
             'email' => 'anwarahmad391@gmail.com',
-            'password' => bcrypt('siryu007')
+            'password' => bcrypt('siryu007'),
+            'is_admin' => 1
+        ]);
+
+        User::Create([
+            'name' => 'Administrator',
+            'username' => 'admin',
+            'email' => 'admin@mail.com',
+            'password' => bcrypt('admin'),
+            'is_admin' => 1
+        ]);
+
+        User::Create([
+            'name' => 'Shinta Purnama',
+            'username' => 'shinta',
+            'email' => 'shinta96@gmail.com',
+            'password' => bcrypt('shinta@123'),
+            'is_admin' => 0
         ]);
 
         // Products
@@ -180,6 +198,15 @@ class DatabaseSeeder extends Seeder
         City::create([
             'province_id' => '4',
             'city_name' => 'Lahat'
+        ]);
+
+        // Input Ke table Employee
+        Employee::create([
+            'emp_name' => 'Shinta Purnama',
+            'emp_religion' => 'Islam',
+            'emp_gender' => 'Perempuan',
+            'emp_birthdate' => '1996-07-14',
+            'emp_adress' => 'Perum BPV, Ciseeng'
         ]);
     }
 }
