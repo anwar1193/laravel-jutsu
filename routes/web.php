@@ -10,6 +10,8 @@ use App\Http\Controllers\RestClient1Controller;
 use App\Http\Controllers\CrudMultipleController;
 use App\Http\Controllers\DynamicselectController;
 use App\Http\Controllers\CrudSweetAlertController;
+use App\Http\Controllers\WebcamController;
+use App\Http\Controllers\ExportPdfController;
 
 
 
@@ -72,3 +74,11 @@ Route::resource('/crud_sweetalert', CrudSweetAlertController::class)->middleware
 
 // CRUD Multiple
 Route::resource('/crud_multiple', CrudMultipleController::class)->middleware('auth');
+
+// Webcam
+Route::get('/webcam', [WebcamController::class, 'index']);
+Route::post('/webcam', [WebcamController::class, 'store'])->name('webcam.capture');
+
+// Export PDF
+Route::get('/export_pdf', [ExportPdfController::class, 'index']);
+Route::get('/export_pdf_proses', [ExportPdfController::class, 'cetak_pdf'])->name('export_pdf.proses');

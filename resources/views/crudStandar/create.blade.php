@@ -9,13 +9,13 @@
 
         <div class="box">
 
-            {{-- @if (session()->has('success'))
+            @if (session()->has('success'))
                 <div class="alert alert-success alert-dismissible">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                     <h4><i class="icon fa fa-check"></i> Success!</h4>
                     {{ session('success') }}
                 </div>
-            @endif --}}
+            @endif
 
             <div class="box-header">
               <h3 class="box-title">CRUD Standar With Resource - Tambah Data</h3> <br>
@@ -32,6 +32,7 @@
                             {{-- Nama Lengkap --}}
                             <div class="form-group">
                                 <label for="emp_name">Nama Lengkap :</label>
+                                
                                 <input type="text" name="emp_name" class="form-control @error('emp_name') is-invalid @enderror" id="emp_name" autofocus value="{{ old('emp_name') }}">
         
                                 @error('emp_name')

@@ -59,6 +59,8 @@
           </ul>
         </li>
 
+        <li class="{{ Request::is('webcam*') ? 'active' : '' }}"><a href="/webcam"><i class="fa fa-camera"></i> <span>Webcam</span></a></li>
+
         @can('admin') {{-- validasi gate (hanya admin yang bisa akses) --}}
         <li class="treeview {{ Request::is('crud_ajax*') || Request::is('crud_standar*') || Request::is('crud_upload*') || Request::is('crud_sweetalert*') || Request::is('crud_multiple*') ? 'active' : '' }}">
           <a href="#">
@@ -74,6 +76,20 @@
             <li class="{{ Request::is('crud_upload*') ? 'active' : '' }}"><a href="/crud_upload"><i class="fa fa-circle-o"></i> CRUD UPLOAD</a></li>
             <li class="{{ Request::is('crud_sweetalert*') ? 'active' : '' }}"><a href="/crud_sweetalert"><i class="fa fa-circle-o"></i> CRUD SWEET ALERT</a></li>
             <li class="{{ Request::is('crud_multiple*') ? 'active' : '' }}"><a href="/crud_multiple"><i class="fa fa-circle-o"></i> CRUD MULTIPLE</a></li>
+          </ul>
+        </li>
+
+        <li class="treeview {{ Request::is('export_pdf*') ? 'active' : '' }}">
+          <a href="#">
+            <i class="fa fa-download"></i>
+            <span>Import-Export</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+
+          <ul class="treeview-menu">
+            <li class="{{ Request::is('export_pdf*') ? 'active' : '' }}"><a href="/export_pdf"><i class="fa fa-circle-o"></i> Export PDF</a></li>
           </ul>
         </li>
         @endcan
