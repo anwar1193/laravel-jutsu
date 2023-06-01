@@ -44,7 +44,7 @@
         </li>
         @endcan
 
-        <li class="treeview {{ Request::is('dynamic_select*') || Request::is('yajra_data_table*') ? 'active' : '' }}">
+        <li class="treeview {{ Request::is('dynamic_select*') || Request::is('yajra_data_table*') || Request::is('dtable_serverside*') ? 'active' : '' }}">
           <a href="#">
             <i class="fa fa-eye"></i>
             <span>View Data</span>
@@ -55,7 +55,10 @@
 
           <ul class="treeview-menu">
             <li class="{{ Request::is('yajra_data_table*') ? 'active' : '' }}"><a href="/yajra_data_table"><i class="fa fa-circle-o"></i> Yajra DataTables</a></li>
+
             <li class="{{ Request::is('dynamic_select*') ? 'active' : '' }}"><a href="/dynamic_select"><i class="fa fa-circle-o"></i> Dynamic Select</a></li>
+
+            <li class="{{ Request::is('dtable_serverside*') ? 'active' : '' }}"><a href="/dtable_serverside"><i class="fa fa-circle-o"></i> DTable ServerSide</a></li>
           </ul>
         </li>
 
@@ -93,6 +96,8 @@
           </ul>
         </li>
         @endcan
+
+        <li class="{{ Request::is('fluent_string*') ? 'active' : '' }}"><a href="/fluent_string"><i class="fa fa-file-text"></i> <span>Fluent String</span></a></li>
     
         {{-- <li class="header">LABELS</li>
         <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li> --}}

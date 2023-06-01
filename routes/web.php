@@ -12,6 +12,8 @@ use App\Http\Controllers\DynamicselectController;
 use App\Http\Controllers\CrudSweetAlertController;
 use App\Http\Controllers\WebcamController;
 use App\Http\Controllers\ExportPdfController;
+use App\Http\Controllers\DTableServerSideController;
+use App\Http\Controllers\FluentStringController;
 
 
 
@@ -82,3 +84,10 @@ Route::post('/webcam', [WebcamController::class, 'store'])->name('webcam.capture
 // Export PDF
 Route::get('/export_pdf', [ExportPdfController::class, 'index']);
 Route::get('/export_pdf_proses', [ExportPdfController::class, 'cetak_pdf'])->name('export_pdf.proses');
+
+// Data Table Server Side
+Route::get('/dtable_serverside', [DTableServerSideController::class, 'index'])->name('dtable_serverside.index');
+Route::get('/dtable_serverside/detail', [DTableServerSideController::class, 'detail'])->name('dtable_serverside.detail');
+
+// Fluent String
+Route::get('fluent_string', [FluentStringController::class, 'index']);

@@ -90,9 +90,6 @@
 
             e.preventDefault(); // Mematikan fungsi href pada a
 
-            // Ambil Link dari tombol hapus yang sedang di klik
-            const href = '/crud_sweetalert/{{ $row->id }}';
-
             Swal.fire({
             title: 'Apakah Anda Yakin?',
             text: "Data Provinsi Akan Dihapus!",

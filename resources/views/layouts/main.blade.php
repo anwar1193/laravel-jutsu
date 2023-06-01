@@ -27,8 +27,15 @@
   <link rel="stylesheet" href="/adminLTE/bower_components/bootstrap-daterangepicker/daterangepicker.css">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="/adminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-  <!-- DataTables -->
+  <!-- DataTables Client Side -->
   <link rel="stylesheet" href="/adminLTE/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+
+  <!-- DataTables Server Side -->
+  <link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+  <!--datatable responsive css-->
+  <link href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
+
   <!-- jQuery 3 -->
   <script src="/adminLTE/bower_components/jquery/dist/jquery.min.js"></script>
 
@@ -292,15 +299,17 @@
 <script src="/adminLTE/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
 <script src="/adminLTE/bower_components/fastclick/lib/fastclick.js"></script>
-<!-- DataTables -->
-<script src="/adminLTE/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="/adminLTE/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
 <!-- AdminLTE App -->
 <script src="/adminLTE/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="/adminLTE/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/adminLTE/dist/js/demo.js"></script>
+
+<!-- DataTables Client Side -->
+<script src="/adminLTE/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="/adminLTE/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
 <script>
   $(function () {
@@ -315,5 +324,14 @@
     })
   })
 </script>
+
+  <!-- DataTables Server Side -->
+  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+
 </body>
 </html>
