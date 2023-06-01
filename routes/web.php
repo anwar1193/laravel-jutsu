@@ -1,6 +1,9 @@
 <?php
 
+use App\Mail\TestMail;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
+
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DtableController;
 use App\Http\Controllers\CrudajaxController;
@@ -15,6 +18,7 @@ use App\Http\Controllers\ExportPdfController;
 use App\Http\Controllers\DTableServerSideController;
 use App\Http\Controllers\FluentStringController;
 use App\Http\Controllers\LocalizationController;
+use App\Http\Controllers\EmailController;
 
 
 /*
@@ -94,3 +98,10 @@ Route::get('/fluent_string', [FluentStringController::class, 'index']);
 // Localization (Multi Bahasa)
 Route::get('/localization/{locale}', [LocalizationController::class, 'index']);
 Route::post('/localization-change', [LocalizationController::class, 'change'])->name('localization.change');
+
+// Email
+Route::get('/email', [EmailController::class, 'index']);
+// Route::get('/email-send', function(){
+//     Mail::to('munawarahmad758@gmail.com')->send(new TestMail());
+// });
+Route::post('/email-send', [EmailController::class, 'send'])->name('email.send');

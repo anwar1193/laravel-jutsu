@@ -333,5 +333,17 @@
   <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
   <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
 
+  {{-- CKEditor --}}
+  <script src="/adminLTE/bower_components/ckeditor/ckeditor.js"></script>
+  <script>
+    $(function () {
+      // Replace the <textarea id="editor1"> with a CKEditor
+      // instance, using default configuration.
+      CKEDITOR.replace('editor1')
+      //bootstrap WYSIHTML5 - text editor
+      $('.textarea').wysihtml5()
+    })
+  </script>
+
 </body>
 </html>
