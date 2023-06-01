@@ -49,6 +49,8 @@ class FluentStringController extends Controller
 
         // Membuat string huruf besar
         $upper = Str::of('laravel Mantap')->upper();
-        echo '10 - '.$upper.'<br>';
+        echo '10 - '.$upper.'<br><br>';
+
+        echo '<a href="'.Route('dashboard.index').'">Back To Dashboard</a>';
     }
 }

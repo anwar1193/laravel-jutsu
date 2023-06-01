@@ -98,6 +98,8 @@
         @endcan
 
         <li class="{{ Request::is('fluent_string*') ? 'active' : '' }}"><a href="/fluent_string"><i class="fa fa-file-text"></i> <span>Fluent String</span></a></li>
+
+        <li class="{{ Request::is('localization*') ? 'active' : '' }}"><a href="/localization/{{ Session::get('languange') }}"><i class="fa fa-language"></i> <span>Localization (Multi Bahasa)</span></a></li>
     
         {{-- <li class="header">LABELS</li>
         <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li> --}}

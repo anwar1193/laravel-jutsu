@@ -14,8 +14,7 @@ use App\Http\Controllers\WebcamController;
 use App\Http\Controllers\ExportPdfController;
 use App\Http\Controllers\DTableServerSideController;
 use App\Http\Controllers\FluentStringController;
-
-
+use App\Http\Controllers\LocalizationController;
 
 
 /*
@@ -41,7 +40,7 @@ Route::get('/dashboard', function(){
     return view('dashboard.index', [
         'title' => 'Laravel Jutsu | Dashboard'
     ]);
-})->middleware('auth');
+})->middleware('auth')->name('dashboard.index');
 
 Route::get('/logout', [LoginController::class, 'logout']);
 
@@ -90,4 +89,8 @@ Route::get('/dtable_serverside', [DTableServerSideController::class, 'index'])->
 Route::get('/dtable_serverside/detail', [DTableServerSideController::class, 'detail'])->name('dtable_serverside.detail');
 
 // Fluent String
-Route::get('fluent_string', [FluentStringController::class, 'index']);
+Route::get('/fluent_string', [FluentStringController::class, 'index']);
+
+// Localization (Multi Bahasa)
+Route::get('/localization/{locale}', [LocalizationController::class, 'index']);
+Route::post('/localization-change', [LocalizationController::class, 'change'])->name('localization.change');
