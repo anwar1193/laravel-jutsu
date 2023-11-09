@@ -32,10 +32,43 @@ class CrudMultipleController extends Controller
      */
     public function create()
     {
+        // CSG030050001
+        // Nomor Otomatis Start ------------------------------------------
+        $kode_cabang = 'CSG';
+        $kode_asset = '03';
+        $kode_sub_kategori = '005';
+
+        $query_nomoto = DB::select("SELECT MAX(MID(trans_code, 9, 5)) AS nomor_otomatis
+        FROM transactions
+        WHERE 
+            MID(trans_code, 1, 3) = '$kode_cabang' AND 
+            MID(trans_code, 4, 2) = '$kode_asset' AND 
+            MID(trans_code, 6,3) = '$kode_sub_kategori'
+        ");
+
+        foreach($query_nomoto as $data){
+            if($data->nomor_otomatis != ''){
+                $jumlah_data = 1;
+            }else{
+                $jumlah_data = 0;
+            }
+        }
+
+        if($jumlah_data > 0){
+            $n = ((int)$query_nomoto[0]->nomor_otomatis + 1);
+            $no = sprintf("%'.05d", $n);
+        }else{
+            $no = '00001';
+        }
+
+        $nomor_otomatis = $kode_cabang.$kode_asset.$kode_sub_kategori.$no;
+        // Nomor Otomatis End --------------------------------------------
+
         $product = Product::orderBy('product_name', 'ASC')->get();
         return view('crudMultiple.create', [
             'title' => 'CRUD Multiple (Create)',
-            'product' => $product
+            'product' => $product,
+            'nomor_otomatis' => $nomor_otomatis
         ]);
     }
 

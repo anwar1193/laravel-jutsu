@@ -32,7 +32,8 @@
                             {{-- Kode Transaksi --}}
                             <div class="form-group">
                                 <label for="trans_code">Kode Transaksi :</label>
-                                <input type="text" name="trans_code" class="form-control @error('trans_code') is-invalid @enderror" id="trans_code" autofocus value="{{ old('trans_code') }}">
+                                {{-- <input type="text" name="trans_code" class="form-control @error('trans_code') is-invalid @enderror" id="trans_code" autofocus value="{{ old('trans_code') }}"> --}}
+                                <input type="text" name="trans_code" class="form-control @error('trans_code') is-invalid @enderror" id="trans_code" autofocus value="{{ $nomor_otomatis }}" readonly>
         
                                 @error('trans_code')
                                     <div class="text-danger">

@@ -19,6 +19,8 @@ use App\Http\Controllers\DTableServerSideController;
 use App\Http\Controllers\FluentStringController;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\AutoRefreshController;
+use App\Http\Controllers\AlternativeJoinController;
 
 
 /*
@@ -105,3 +107,9 @@ Route::get('/email', [EmailController::class, 'index']);
 //     Mail::to('munawarahmad758@gmail.com')->send(new TestMail());
 // });
 Route::post('/email-send', [EmailController::class, 'send'])->name('email.send');
+
+Route::get('/auto-refresh', [AutoRefreshController::class, 'index'])->name('autorefresh.index');
+Route::get('/auto-refresh/get_data', [AutoRefreshController::class, 'data']);
+
+// Alternative Join
+Route::get('/alternative-join', [AlternativeJoinController::class, 'index'])->name('alternativejoin.index');
